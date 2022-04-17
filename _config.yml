@@ -60,3 +60,4 @@ plugins:
 #  - jekyll-feed
 
 remote_theme: samarsault/plainwhite-jekyll
+published: true 
