@@ -1,4 +1,5 @@
 ---
+layout: post
 title:  "CentOS - nohup"
 excerpt: "Centos 환경에서 세션이 끊겨도 서비스 유지하기.."
 
