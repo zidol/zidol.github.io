@@ -11,8 +11,8 @@ tags:
 toc: true
 toc_sticky: true
  
-date: 2022-04-18
-last_modified_at: 2022-04-18
+date: 2022-04-17
+last_modified_at: 2022-04-17
 ---
 
 # 1. nohup 이란?
