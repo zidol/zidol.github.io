@@ -1,34 +1,33 @@
 ---
-layout: post
 title:  "CentOS - nohup"
 excerpt: "Centos 환경에서 세션이 끊겨도 서비스 유지하기.."
 
 categories:
-  - Blog
+  - Linux
 tags:
   - [CentOS7, nohup]
 
 toc: true
 toc_sticky: true
  
-date: 2022-04-17
-last_modified_at: 2022-04-17
+date: 2022-04-17T08:06:00-05:00
+last_modified_at: 2022-04-17T08:06:00-05:00
 ---
 
-# 1. nohup 이란?
+## 1. nohup 이란?
 
 - no-hang-up signaling..즉 신호가 끊기지 않는다 는 뜻.
 - 리눅스에서 프로세스를 실행한 터미널의 세션 연결이 끊어지더라도 지속적으로 동작 할 수 있게 해주는 명령어
 
-# 2. &란?
+## 2. &란?
 
 프로세스를 실행할 때 백그라운드에서 동작하도록 만드는 명령어
 
-# 3. 주의사항
+## 3. 주의사항
 
 nohup으로 실행할 쉘스크립트파일(*.sh)은 현재 퍼미션이 755이상 상태여야 함
 
-# 4. 실행방법
+## 4. 실행방법
 
 1) 톰캣이나 geoserver에 있는 스크립트 실행시
 

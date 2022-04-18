@@ -3,15 +3,15 @@ title:  "CentOS 7 자바 설정"
 excerpt: "Centos 환경에서 자바 설치 후 설정 방법"
 
 categories:
-  - Blog
+  - Linux
 tags:
   - [CentOS7, Java, setting]
 
 toc: true
 toc_sticky: true
  
-date: 2021-11-21
-last_modified_at: 2021-11-21
+date: 2021-11-21T08:06:00-05:00
+last_modified_at: 2021-11-21T08:06:00-05:00
 ---
 
 ## yum 설치 가능 리스트 확인
