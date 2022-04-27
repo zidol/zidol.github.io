@@ -15,7 +15,7 @@ last_modified_at: 2022-04-22
 ---
 # vue.js 초기 설정
 
-## 1. Vue 프로젝트 생성
+## 1. Vue 프로젝트 생성 ddd
 
 vue cli 설치 전 node.js를 먼저 설치 해야함
 
