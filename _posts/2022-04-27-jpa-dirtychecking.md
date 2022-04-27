@@ -1,6 +1,6 @@
 ---
 title:  "JPA - 변경 감지와 병합(merge)"
-excerpt: "jpa 수정 로ㄱ"
+excerpt: "jpa 수정시 꼭 알아야할 점!"
 
 categories:
   - JPA
