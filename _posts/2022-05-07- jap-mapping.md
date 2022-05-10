@@ -199,9 +199,7 @@ value 속성
 (예: 2013–10–11)
 - **TemporalType.TIME**: 시간, 데이터베이스 time 타입과 매핑
 (예: 11:11:11)
-- **TemporalType.TIMESTAMP**: 날짜와 시간, 데이터베이 스
-    
-    timestamp 타입과 매핑(예: 2013–10–11 11:11:11)
+- **TemporalType.TIMESTAMP**: 날짜와 시간, 데이터베이스 timestamp 타입과 매핑(예: 2013–10–11 11:11:11)
     
 
 ## **@Lob**
