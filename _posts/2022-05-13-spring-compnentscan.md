@@ -13,6 +13,65 @@ toc_sticky: true
 date: 2022-05-13
 last_modified_at: 2022-05-13
 ---
+# Spring Bean 등록 방법(@Bean, **@Configuration,**@Component**)**
+
+## **@Bean 어노테이션과 @Configuration 어노테이션**
+
+예를 들어 다음과 같은 클래스가 있고, 이를 스프링 컨테이너에 등록하고자 한다고 하자.
+
+이 클래스를 빈으로 등록하기 위해서는 명시적으로 설정 클래스에서 @Bean 어노테이션을 사용해 수동으로 스프링 컨테이너에 빈을 등록하는 방법이 있다. 설정 클래스는 다음과 같이 @Configuration 어노테이션을 클래스에 붙여주면 되는데, @Bean을 사용해 수동으로 빈을 등록해줄 때에는 메소드 이름으로 빈 이름이 결정된다. 그러므로 중복된 빈 이름이 존재하지 않도록 주의해야 한다.
+
+```java
+package hello.core;
+
+//구성영역
+
+/**
+ * SRP단일 책임 원칙을 따르면서 관심사를 분리함
+ * 구현 객체를 생성하고 연결하는 책임은 AppConfig 가 담당
+ * 클라이언트 객체는 실행하는 책임만 담당(MemberServiceImpl 등등)
+ */
+@Configuration//application의 구성정보
+public class AppConfig {
+
+    @Bean //스프링 컨테이너에 등록
+    //생성자 주입
+    public MemberService memberService() {
+        System.out.println("call AppConfig.memberService");
+        return new MemberServiceImpl(memberRepository());
+    }
+
+    @Bean
+    public MemberRepository memberRepository() {
+        System.out.println("cal AppConfig.memberRepository");
+        return new MemoryMemberRepository();
+    }
+    @Bean
+    //생성자 주입
+    public OrderService orderService () {
+        System.out.println("call AppConfig.orderService");
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return null;
+    }
+
+    @Bean
+    //정책이 바뀌면 AppConfig에서 매서드만 수정
+    public DiscountPolicy discountPolicy() {
+//        return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
+    }
+}
+```
+
+스프링 컨테이너는 @Configuration이 붙어있는 클래스를 자동으로 빈으로 등록해두고, 해당 클래스를 파싱해서 @Bean이 있는 메소드를 찾아서 빈을 생성해준다. 하지만 어떤 임의의 클래스를 만들어서 @Bean 어노테이션을 붙인다고 되는 것이 아니고, @Bean을 사용하는 클래스에는 반드시 @Configuration 어노테이션을 활용하여 해당 클래스에서 Bean을 등록하고자 함을 명시해주어야 한다. 스프링 빈으로 등록된 다른 클래스 안에서 @Bean으로 직접 빈을 등록해주는 것도 동작은 한다. 하지만 @Configuration 안에서 @Bean을 사용해야 싱글톤을 보장받을 수 있으므로 @Bean 어노테이션은 반드시 @Configuration과 함께 사용해주어야 한다.
+
+이러한 @Bean 어노테이션의 경우는 수동으로 빈을 직접 등록해줘야만 하는 상황인데, 주로 다음과 같을 때 사용한다.
+
+1. 개발자가 직접 제어가 불가능한 라이브러리를 활용할 때
+2. 애플리케이션 전범위적으로 사용되는 클래스를 등록할 때
+3. 다형성을 활용하여 여러 구현체를 등록해주어야 할 때
+
+---
 # **컴포넌트 스캔과 의존관계 자동 주입 시작하기**
 
 지금까지 스프링 빈을 등록할 때는 자바 코드의 @Bean이나 XML의 <bean> 등을 통해서 설정 정보에 직접 등록할 스프링 빈을 나열했다.  
@@ -376,3 +435,4 @@ Consider renaming one of the beans or enabling overriding by setting spring.main
 
 출처  
 인프런 김영한님 **[자바 ORM 표준 JPA 프로그래밍 - 기본편](https://www.inflearn.com/course/ORM-JPA-Basic)**  
+망나니 개발자님 [[MangKyu's Diary]](https://mangkyu.tistory.com/75)
