@@ -313,8 +313,16 @@ Factory Server Config::RAM= 16 GB, HDD=1 TB, CPU=2.9 GHz
 
 - 어댑터를 사용하여 호환되지 않는 인터페이스를 호환되도록 하는 패턴
 
- 
+> 한 클래스의 인터페이스를 클라이언트에서 사용하고자하는 다른 인터페이스로 변환한다.
+어댑터를 이용하면 인터페이스 호환성 문제 때문에 같이 쓸 수 없는 클래스들을 연결해서 쓸 수 있다.
+> 
 
+호환되지 않는 인터페이스를 사용하는 클라이언트를 그대로 활용할수 있다. 
+
+이렇게 함으로써 클라이언트와 구현된 인터페이스를 분리시킬수 있으며, 향후 인터페이스가 바뀌더라도 그 변경 
+
+내역은 어댑터에 캡슐화 되기 때문에 클라이언트는 바뀔 필요가 없어진다.
+ 
 ![어댑터 패턴 클래스 다이어그램]({{ site.url }}{{ site.baseurl }}/assets/images/adapterPatternUml.png)
 
 어댑터 패턴 클래스 다이어그램
@@ -322,6 +330,152 @@ Factory Server Config::RAM= 16 GB, HDD=1 TB, CPU=2.9 GHz
 > 출처
 [https://jusungpark.tistory.com/22](https://jusungpark.tistory.com/22)
 > 
+
+일상 생활에서와 동일하게 어떤 인터페이스를 클라이언트에서 요구하는 형태의 인터페이스에 적응시켜주는 역할을 한다.
+
+기존 시스템 → 업체에서 제공하는 클래스
+
+기존 시스템 → 어댑터 → 업체에서 제공하는 클래스
+
+## 예제 Code
+
+```java
+package adapter;
+
+public interfaceDuck{
+    public void quack();
+    public void fly();
+}
+```
+
+```java
+package adapter;
+
+public class MallardDuck implements Duck {
+    @Override
+    public void quack() {
+        System.out.println("Quack~~Quack~~");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("I believe I can fly");
+    }
+}
+```
+
+```java
+package adapter;
+
+public class MallardDuck implements Duck {
+    @Override
+    public void quack() {
+        System.out.println("Quack~~Quack~~");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("I believe I can fly");
+    }
+}
+```
+
+```java
+package adapter;
+
+public class WildTurkey implements Turkey {
+    @Override
+    public void gobble() {
+        System.out.println("Gobble~ Gobble~");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("I Can fly too. But short distance");
+    }
+}
+```
+
+Duck 객체가 모자라서 Turkey 객체를 대신 사용해양 하는 상황이라고 해보자.
+
+인터페이스가 다르기 때문에 Turkey객체를 바로 사용할 수는 없다.
+
+다음은 어댑터코드이다.
+
+```java
+package adapter;
+public class TurkeyAdapter implements Duck {
+
+    Turkey turkey;
+
+    public TurkeyAdapter(Turkey turkey) {
+        this.turkey = turkey;
+    }
+
+    @Override
+    public void quack(){
+        turkey.gobble();
+    }
+
+    @Override
+    public void fly() {
+        turkey.fly();
+    }
+
+}
+```
+
+테스트 main 코드
+
+```java
+package adapter;
+
+public class AdapterTest {
+    public static void main(String[] args) {
+        MallardDuck duck = new MallardDuck();
+
+        WildTurkey turkey = new WildTurkey();
+        Duck turkeyAdapter = new TurkeyAdapter(turkey);
+
+        turkey.gobble();
+        turkey.fly();
+
+        testDuck(duck);
+
+        testDuck(turkeyAdapter);
+    }
+
+    public static void testDuck(Duck duck){
+        duck.quack();
+        duck.fly();
+    }
+}
+```
+
+```bash
+Gobble~ Gobble~
+I Can fly too. But short distance
+Quack~~Quack~~
+I believe I can fly
+Gobble~ Gobble~
+I Can fly too. But short distance
+
+Process finished with exit code 0
+```
+
+클라이언트 -> request() -> 어댑터 - translatedRequest() -> 어댑터
+
+클라이언트는 타겟 인터페이스에 맞게 구현, 어댑터는 타겟 인터페이스를 구현하며, 어댑터 인스턴스가 들어있다.
+
+**클라이언트에서 어댑터를 사용하는 방법**
+
+1. 클라이언트에서 타겟 인터페이스를 사용하여 메소드를 호출함으로써 어댑터에 요청을 한다.
+
+2. 어댑터에서는 어댑티 인터페이스를 사용하여 그 요청을 어댑티 에 대한 하나 이상의 메소드를 호출로 변환한다.
+
+3. 클라이언트에서는 호출 결과를 받긴 하지만 중간에 어댑터가 껴 있는지는 전혀 알지 못한다.
+
+> 출처: https://jusungpark.tistory.com/22  
 
 ## 4. 템플릿 메소드 패턴
 
