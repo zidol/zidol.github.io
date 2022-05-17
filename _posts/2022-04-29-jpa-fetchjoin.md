@@ -117,8 +117,7 @@ String query = "select m from Member m";
 List<Member> resultList = em.createQuery(query, Member.class).getResultList();
 
 for (Member member : resultList) {
-	System.out.println("member = " + member.getUsername() + ", " + 
-																								member.getTeam().getName());
+	System.out.println("member = " + member.getUsername() + ", " + member.getTeam().getName());
 }
 ```
 
