@@ -10,8 +10,8 @@ tags:
 toc: true
 toc_sticky: true
  
-date: 2022-07-06
-last_modified_at: 2022-07-06
+date: 2022-07-12
+last_modified_at: 2022-07-12
 ---
 # Static
 
