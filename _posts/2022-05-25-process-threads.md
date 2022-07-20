@@ -13,9 +13,6 @@ toc_sticky: true
 date: 2022-05-25
 last_modified_at: 2022-05-25
 ---
-
-# 프로세스와 쓰레드차이
-
 # 프로그램(Program) 이란
 
 - 사전적 의미
