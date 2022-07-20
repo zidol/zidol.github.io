@@ -49,7 +49,7 @@ last_modified_at: 2022-05-25
 - 한 프로세스가 다른 프로세스의 자원에 접근하려면 프로세스 간의 통신(IPC, inter-process communication)을 사용해야 한다.
     - Ex. 파이프, 파일, 소켓 등을 이용한 통신 방법 이용
     
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f69caed4-a9d9-46cb-9a46-f37132e0d4de/process.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f69caed4-a9d9-46cb-9a46-f37132e0d4de/process.png)
+    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f69caed4-a9d9-46cb-9a46-f37132e0d4de/process.png](https://zidols.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff69caed4-a9d9-46cb-9a46-f37132e0d4de%2Fprocess.png?table=block&id=d0cdb2da-90b1-40f5-984e-a00dded68c0d&spaceId=370dbc5e-872d-4d9e-9f3a-f7113cda9427&width=1400&userId=&cache=v2)
     
 
 ---
@@ -141,7 +141,7 @@ last_modified_at: 2022-05-25
 
 - 쉽게 설명하면, 프로그램을 여러 개 키는 것보다 하나의 프로그램 안에서 여러 작업을 해결하는 것이다.
     
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dd9ebec8-5ba1-49e0-95bd-c02868c35911/multi-thread.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dd9ebec8-5ba1-49e0-95bd-c02868c35911/multi-thread.png)
+    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dd9ebec8-5ba1-49e0-95bd-c02868c35911/multi-thread.png](https://zidols.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fdd9ebec8-5ba1-49e0-95bd-c02868c35911%2Fmulti-thread.png?table=block&id=65afb055-07e4-4f81-86ff-29df8323ef20&spaceId=370dbc5e-872d-4d9e-9f3a-f7113cda9427&width=1400&userId=&cache=v2)
     
 
 ### 여러 프로세스(멀티 프로세스)로 할 수 있는 작업들을 굳이 하나의 프로세스에서 스레드로 나눠가면서 할까?
