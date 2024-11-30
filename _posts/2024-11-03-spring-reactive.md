@@ -1,5 +1,5 @@
 ---
-title:  "라액티브 시스템"
+title:  "리액티브 시스템"
 excerpt: "kevin"
 
 categories:
