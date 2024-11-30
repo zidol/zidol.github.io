@@ -105,7 +105,7 @@ author:
   name             : "JiHyeok Ahn"
   avatar           : "/assets/images/profile.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an **amazing** person."
-  location         : "Daegu"
+  location         : "Seoul"
   email            : ajh3166@gmail.com
   links:
     - label: "Email"
